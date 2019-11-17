@@ -2,4 +2,40 @@
 
 version: '2'
 
+vars:
+  BUILD_DIR: dist
 
+tasks:
+  default:
+    cmds:
+      - task: build
+
+  build:
+    env: 
+      GOOS: js
+      GOARCH: wasm
+    sources:
+      - ./static/**/*
+      - ./**/*.go
+    cmds: 
+      - mkdir -p {{.BUILD_DIR}}
+      - cp "$(go env GOROOT)/misc/wasm/wasm_exec.js" {{.BUILD_DIR}}
+      - cp static/* {{.BUILD_DIR}} -R
+      - go build -o {{.BUILD_DIR}}/main.wasm
+  
+  run:
+    deps: [build-server, build]
+    cmds: 
+      #- go run ./tools/server dist 8080
+      - ./tools/server/server {{.BUILD_DIR}} 8080
+
+  build-server:
+    status:
+      - test -f ./tools/server/server
+    cmds:
+      - go build -o ./tools/server/ ./tools/server/
+
+  clean:
+    cmds: 
+      - cmd: rm -rf {{.BUILD_DIR}}
+      - cmd: rm -f ./tools/server/server
