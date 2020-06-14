@@ -1,0 +1,4 @@
+github.com/hlavavit/go-wasm-threejs v0.0.0-20191129101152-147517d2e5d8 h1:LdZII7SAL2VnkxNlpgAKaq4R6SSm/5wOu9PLVtzOXTU=
+honnef.co/go/js/dom v0.0.0-20190526011328-ebc4cf92d81f h1:b3Q9PqH+5NYHfIjNUEN+f8lYvBh9A25AX+kPh8dpYmc=
+honnef.co/go/js/dom/v2 v2.0.0-20190526011328-ebc4cf92d81f h1:rxpwPRn5voIeZmBGJvlhLwWo9fSZSciAAfHz6sAHGCY=
+honnef.co/go/js/dom/v2 v2.0.0-20190526011328-ebc4cf92d81f/go.mod h1:H5R0jAIe6IchQE778FS2QcrNVgS4vPFb0HPb72n/IJI=
